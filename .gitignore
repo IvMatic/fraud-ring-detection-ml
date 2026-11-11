@@ -218,3 +218,21 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Project datasets and artifacts
+/data/**
+!/data/
+!/data/raw/
+!/data/processed/
+!/data/**/.gitkeep
+
+/models/
+/reports/metrics/
+
+# Additional credentials
+.env.*
+!.env.example
+*.pem
+*.key
+
