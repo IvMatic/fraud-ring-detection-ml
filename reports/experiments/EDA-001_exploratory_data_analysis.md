@@ -9,7 +9,7 @@ Explore a synthetic account-level dataset, assess data quality, investigate feat
 The dataset consists of 1,000 synthetic accounts:
 
 - 970 normal accounts
-- 30 artificially generated anomalous accounts
+- 30 artificially generated anomalous accounts.
 
 Three numerical features were investigated:
 
