@@ -55,10 +55,16 @@ performance estimates.
 - [03 — Harder Anomaly Detection](notebooks/03_anomaly_simulation.ipynb)
 - [04 — Feature Ablation](notebooks/04_feature_ablation.ipynb)
 
+
 ### Experiment Reports
 
-- [EXP-002 — Harder Anomalies](reports/experiments/EXP-002_harder_anomalies.md)
-- [EXP-003 — Feature Ablation](reports/experiments/EXP-003_feature_ablation.md)
+| ID | Experiment | Report |
+|---|---|---|
+| EDA-001 | Exploratory Data Analysis | [Read Report](reports/experiments/EDA-001_exploratory_data_analysis.md) |
+| EXP-001 | Isolation Forest Baseline | [Read Report](reports/experiments/EXP-001_isolation_forest_baseline.md) |
+| EXP-002 | Harder Anomaly Detection | [Read Report](reports/experiments/EXP-002_harder_anomalies.md) |
+| EXP-003 | Feature Ablation Study | [Read Report](reports/experiments/EXP-003_feature_ablation.md) |
+
 
 ### Main Findings
 
