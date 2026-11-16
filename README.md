@@ -18,28 +18,78 @@ The objective is not only to develop models, but also to understand their behavi
 - Can graph-based features improve traditional machine learning models?
 - Do Graph Neural Networks offer advantages over feature-based approaches?
 
+
 ## Project Roadmap
 
 | Phase | Focus | Status |
 |---|---|---|
-| 01 | Synthetic data exploration and EDA | Completed |
-| 02 | Isolation Forest baseline | Completed |
-| 03 | Harder anomaly detection experiments | Planned |
-| 04 | Realistic transaction datasets | Planned |
-| 05 | Memgraph and graph feature engineering | Planned |
-| 06 | Traditional machine learning | Planned |
-| 07 | Graph Neural Networks | Planned |
-| 08 | Model comparison and ensemble strategies | Planned |
+| 01 | Synthetic Data Exploration & EDA | Completed |
+| 02 | Isolation Forest Baseline | Completed |
+| 03 | Harder Anomalies & Error Analysis | Completed |
+| 04 | Feature Ablation Study | Completed |
+| 05 | Anomaly Detection Model Comparison | Planned |
+| 06 | Transaction Fraud Detection Dataset | Planned |
+| 07 | Memgraph & Graph Feature Engineering | Planned |
+| 08 | Traditional ML — XGBoost / Random Forest | Planned |
+| 09 | Graph Neural Networks | Planned |
+| 10 | Ensemble Strategies & Model Comparison | Planned |
 
-## Initial Findings
 
-The first Isolation Forest experiment achieved perfect Precision, Recall, and F1-score on a small, held-out synthetic test dataset.
+## Experiments and Results
 
-However, the synthetic anomalies were deliberately constructed to be clearly distinguishable from normal accounts. These results should not be interpreted as evidence of real-world fraud detection performance.
+| ID | Experiment | Dataset | F1-score |
+|---|---|---|---:|
+| EXP-001 | Isolation Forest Baseline | Synthetic v1 | 1.000 |
+| EXP-002 | Harder Anomaly Detection | Synthetic v2 | 0.880 |
+| EXP-003 | Feature Ablation — All Features | Synthetic v2 | 0.880 |
+| EXP-003 | Feature Ablation — Without Devices | Synthetic v2 | 0.909 |
 
-Threshold sensitivity experiments also demonstrated the trade-off between detecting more anomalies and generating false positives.
+All results are from small, held-out synthetic
+test sets. They are not real-world fraud detection
+performance estimates.
 
-See the experiment reports and notebooks for detailed methodology and limitations.
+### Experiment Notebooks
+
+- [01 — Exploratory Data Analysis](notebooks/01_eda.ipynb)
+- [02 — Isolation Forest Baseline](notebooks/02_isolation_forest.ipynb)
+- [03 — Harder Anomaly Detection](notebooks/03_anomaly_simulation.ipynb)
+- [04 — Feature Ablation](notebooks/04_feature_ablation.ipynb)
+
+### Experiment Reports
+
+- [EXP-002 — Harder Anomalies](reports/experiments/EXP-002_harder_anomalies.md)
+- [EXP-003 — Feature Ablation](reports/experiments/EXP-003_feature_ablation.md)
+
+### Main Findings
+
+**1. Easy anomalies can produce misleadingly
+strong results.**
+
+The initial model achieved F1 = 1.000 because
+the synthetic anomalies were deliberately extreme.
+
+**2. Subtle anomalies are more challenging.**
+
+On Dataset v2, Isolation Forest achieved
+F1 = 0.880 and missed one subtle anomaly.
+
+**3. Feature selection changes model behavior.**
+
+Removing `num_devices` improved overall F1
+to 0.909 but reduced subtle anomaly recall
+from 0.833 to 0.667.
+
+**4. Individual error analysis matters.**
+
+All four feature configurations missed
+the same subtle anomaly, ACC_00619.
+
+**5. Graph-based information remains a hypothesis.**
+
+The current dataset has no actual graph edges.
+Future experiments will investigate whether
+graph features provide additional detection value.
+
 
 ## Technology Stack
 
